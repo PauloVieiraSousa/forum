@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Path;
 
 import br.com.alura.forum.model.topic.domain.Topic;
@@ -19,6 +20,7 @@ import lombok.Setter;
 public class TopicFilterDTO {
 
 	private String categoryName;
+
 	private TopicStatus status;
 	
 	public boolean temAlgunFiltro() {
@@ -43,5 +45,25 @@ public class TopicFilterDTO {
 			return criteriaBuilder.and(predicate.toArray(new Predicate[0]));
 			
 		});
+	}
+	
+	
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+
+	public TopicStatus getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(TopicStatus status) {
+		this.status = status;
 	}
 }
